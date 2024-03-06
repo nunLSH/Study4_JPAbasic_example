@@ -13,7 +13,7 @@ import java.util.List;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE) // 한 테이블에 다 넣음
 @DiscriminatorColumn(name = "dtype")
 @Getter @Setter
-public class Item {
+public abstract class Item {
 
     @Id
     @GeneratedValue
