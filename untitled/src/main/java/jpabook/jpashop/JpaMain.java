@@ -4,9 +4,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
-import jpabook.jpashop.domain.Member;
-import jpabook.jpashop.domain.Order;
-import jpabook.jpashop.domain.OrderItem;
+import jpabook.jpashop.domain.*;
 
 public class JpaMain {
 
@@ -20,15 +18,11 @@ public class JpaMain {
 
         try {
 
-            Order order = new Order();
-//            order.addOrderItem(new OrderItem()); // 양방향 연관관계 - 편의메서드 사용
-            em.persist(order);
+            Book book = new Book();
+            book.setName("JPA");
+            book.setAuthor("김영한");
 
-            // 단방향 연관관계로 작성
-            OrderItem orderItem = new OrderItem();
-            orderItem.setOrder(order);
-
-            em.persist(orderItem);
+            em.persist(book);
 
             tx.commit();
         } catch (Exception e) {
